@@ -2,6 +2,9 @@ FROM ubuntu:18.04
 
 MAINTAINER "Thaweesak Chusri" <t.chusri@gmail.com>
 
+ENV TZ=Asia/Bangkok
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 # Upgrade
 RUN apt-get update -y
 RUN apt-get upgrade -y
@@ -28,7 +31,7 @@ RUN apt-get update -y && apt-get install -y software-properties-common
 RUN LC_ALL=C.UTF-8 add-apt-repository -y -u ppa:ondrej/php
 
 # Install PHP-FPM and popular/laravel required extensions
-RUN apt-get update -y && apt-get install -y \
+RUN DEBIAN_FRONTEND=noninteractive && apt-get update -y && apt-get install -y \
 	zip \
 	unzip \
 	curl \
@@ -94,4 +97,4 @@ EXPOSE 9000
 
 WORKDIR /data
 
-ENTRYPOINT ["/opt/bin/nginx-start.sh"]
+CMD ["/opt/bin/nginx-start.sh"]
