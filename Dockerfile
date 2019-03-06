@@ -75,8 +75,9 @@ RUN a2enmod rewrite expires
 RUN echo "ServerName localhost" | tee /etc/apache2/conf-available/servername.conf
 RUN a2enconf servername
 # Configure vhost for default
-COPY default /etc/apache2/sites-available/
+COPY config/default.conf /etc/apache2/sites-available/
 RUN a2dissite 000-default
+RUN ls /etc/apache2/sites-available/
 RUN a2ensite default
 
 VOLUME ["/data"]
