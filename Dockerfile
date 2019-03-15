@@ -89,4 +89,5 @@ EXPOSE 9000
 
 WORKDIR /data
 
-CMD ["apachectl -D FOREGROUND"]
+#CMD ["/usr/sbin/apachectl -D FOREGROUND"]
+CMD ["/usr/sbin/apachectl", "-D", "FOREGROUND"]
