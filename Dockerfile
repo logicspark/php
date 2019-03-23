@@ -46,6 +46,7 @@ RUN DEBIAN_FRONTEND=noninteractive && apt-get update -y && apt-get install -y \
     php7.3-gettext \
     php7.3-mongodb \
     php7.3-ldap \
+    php7.3-zip \
     vim 
 
 # Configure PHP-FPM
