@@ -36,36 +36,36 @@ RUN DEBIAN_FRONTEND=noninteractive && apt-get update -y && apt-get install -y \
 	unzip \
 	curl \
 	git \
-	php7.3-fpm \
-	php7.3-mysql \
-	php7.3-mbstring \
-	php7.3-curl \
-	php7.3-gd \
-	php7.3-intl \
-	php7.3-imagick \
-	php7.3-imap \
-	php7.3-memcache \
-	php7.3-pspell \
-	php7.3-recode \
-	php7.3-sqlite3 \
-	php7.3-tidy \
-	php7.3-xmlrpc \
-	php7.3-xsl \
-	php7.3-mbstring \
-	php7.3-gettext \
-	php7.3-mongodb \
-	php7.3-ldap \
-	php7.3-zip \
+	php7.4-fpm \
+	php7.4-mysql \
+	php7.4-mbstring \
+	php7.4-curl \
+	php7.4-gd \
+	php7.4-intl \
+	php7.4-imagick \
+	php7.4-imap \
+	php7.4-memcache \
+	php7.4-pspell \
+	php7.4-sqlite3 \
+	php7.4-tidy \
+	php7.4-xmlrpc \
+	php7.4-xsl \
+	php7.4-mbstring \
+	php7.4-gettext \
+	php7.4-mongodb \
+	php7.4-ldap \
+	php7.4-zip \
 	vim 
+	# php7.4-recode \
 
 # Configure PHP-FPM
-RUN sed -i "s/;date.timezone =.*/date.timezone = Asia\/Bangkok/" /etc/php/7.3/fpm/php.ini
-# RUN sed -i "s/;date.timezone =.*/date.timezone = UTC/" /etc/php/7.3/fpm/php.ini
-RUN sed -i "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/" /etc/php/7.3/fpm/php.ini
+RUN sed -i "s/;date.timezone =.*/date.timezone = Asia\/Bangkok/" /etc/php/7.4/fpm/php.ini
+# RUN sed -i "s/;date.timezone =.*/date.timezone = UTC/" /etc/php/7.4/fpm/php.ini
+RUN sed -i "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/" /etc/php/7.4/fpm/php.ini
 # RUN echo "xdebug.max_nesting_level=500" > /etc/php5/mods-available/xdebug.ini
-	# sed -i "s/display_errors = Off/display_errors = stderr/" /etc/php/7.3/fpm/php.ini && \
-	# sed -i "s/upload_max_filesize = 2M/upload_max_filesize = 30M/" /etc/php/7.3/fpm/php.ini && \
-	# sed -i "s/;opcache.enable=0/opcache.enable=0/" /etc/php/7.3/fpm/php.ini && \
+	# sed -i "s/display_errors = Off/display_errors = stderr/" /etc/php/7.4/fpm/php.ini && \
+	# sed -i "s/upload_max_filesize = 2M/upload_max_filesize = 30M/" /etc/php/7.4/fpm/php.ini && \
+	# sed -i "s/;opcache.enable=0/opcache.enable=0/" /etc/php/7.4/fpm/php.ini && \
 	# sed -i -e "s/;daemonize\s*=\s*yes/daemonize = no/g" /etc/php5/fpm/php-fpm.conf && \
 	# sed -i '/^listen = /clisten = 9000' /etc/php5/fpm/pool.d/www.conf && \
 	# sed -i '/^listen.allowed_clients/c;listen.allowed_clients =' /etc/php5/fpm/pool.d/www.conf && \
